@@ -108,7 +108,7 @@ export default function SearchPage() {
                   src={salon.image} 
                   alt={salon.name}
                   fill
-                  className="object-cover grayscale"
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">

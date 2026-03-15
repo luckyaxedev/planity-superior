@@ -76,7 +76,7 @@ export default function SalonPage({ params }: { params: Promise<{ id: string }> 
           src={salon.images[0]} 
           alt={salon.name}
           fill
-          className="object-cover grayscale opacity-50"
+          className="object-cover opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         <div className="absolute bottom-8 left-0 right-0 container mx-auto px-4">
