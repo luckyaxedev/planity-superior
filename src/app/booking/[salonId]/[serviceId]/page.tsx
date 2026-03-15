@@ -17,33 +17,33 @@ export default function BookingPage() {
   const service = { name: 'Women\'s Haircut', price: 35, duration: 60 }
 
   return (
-    <div className="min-h-screen bg-white py-12">
+    <div className="min-h-screen bg-black text-white py-12">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Progress Steps */}
         <div className="flex justify-center mb-12">
           {[1, 2, 3].map((s) => (
             <div key={s} className="flex items-center">
               <div className={`w-10 h-10 border-2 flex items-center justify-center font-semibold ${
-                step >= s ? 'bg-black text-white border-black' : 'bg-white text-gray-400 border-gray-300'
+                step >= s ? 'bg-white text-black border-white' : 'bg-black text-gray-500 border-gray-700'
               }`}>
                 {step > s ? <Check size={20} /> : s}
               </div>
-              {s < 3 && <div className={`w-24 h-1 ${step > s ? 'bg-black' : 'bg-gray-200'}`} />}
+              {s < 3 && <div className={`w-24 h-1 ${step > s ? 'bg-white' : 'bg-gray-800'}`} />}
             </div>
           ))}
         </div>
 
-        <div className="border-2 border-black p-8">
+        <div className="border-2 border-white p-8">
           {step === 1 && (
             <div>
               <h2 className="text-4xl font-bold mb-6">Select Date & Time</h2>
               
               {/* Service Summary */}
-              <div className="bg-gray-50 p-6 mb-8 border border-gray-200">
+              <div className="bg-gray-900 p-6 mb-8 border border-gray-800">
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="font-semibold text-lg">{service.name}</h3>
-                    <p className="text-gray-600">{service.duration} minutes</p>
+                    <p className="text-gray-400">{service.duration} minutes</p>
                   </div>
                   <p className="text-2xl font-bold">{service.price} TND</p>
                 </div>
@@ -57,7 +57,7 @@ export default function BookingPage() {
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full p-4 border-2 border-black focus:outline-none"
+                  className="w-full p-4 bg-black text-white border-2 border-white focus:outline-none"
                 />
               </div>
 
@@ -72,8 +72,8 @@ export default function BookingPage() {
                         onClick={() => setSelectedTime(time)}
                         className={`p-3 font-medium transition-all border-2 ${
                           selectedTime === time
-                            ? 'bg-black text-white border-black'
-                            : 'bg-white border-gray-300 hover:border-black'
+                            ? 'bg-white text-black border-white'
+                            : 'bg-black text-white border-gray-700 hover:border-white'
                         }`}
                       >
                         {time}
@@ -86,7 +86,7 @@ export default function BookingPage() {
               <button
                 onClick={() => setStep(2)}
                 disabled={!selectedDate || !selectedTime}
-                className="w-full mt-8 bg-black text-white py-4 font-semibold hover:bg-gray-900 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="w-full mt-8 bg-white text-black py-4 font-semibold hover:bg-gray-200 transition-colors disabled:bg-gray-700 disabled:text-gray-500 disabled:cursor-not-allowed"
               >
                 Continue
               </button>
@@ -102,7 +102,7 @@ export default function BookingPage() {
                   <input
                     type="text"
                     placeholder="John Doe"
-                    className="w-full p-4 border-2 border-black focus:outline-none"
+                    className="w-full p-4 bg-black text-white border-2 border-white focus:outline-none"
                   />
                 </div>
                 <div>
@@ -110,7 +110,7 @@ export default function BookingPage() {
                   <input
                     type="tel"
                     placeholder="+216 XX XXX XXX"
-                    className="w-full p-4 border-2 border-black focus:outline-none"
+                    className="w-full p-4 bg-black text-white border-2 border-white focus:outline-none"
                   />
                 </div>
                 <div>
@@ -118,13 +118,13 @@ export default function BookingPage() {
                   <input
                     type="email"
                     placeholder="john@example.com"
-                    className="w-full p-4 border-2 border-black focus:outline-none"
+                    className="w-full p-4 bg-black text-white border-2 border-white focus:outline-none"
                   />
                 </div>
                 <button
                   type="button"
                   onClick={() => setStep(3)}
-                  className="w-full bg-black text-white py-4 font-semibold hover:bg-gray-900 transition-colors"
+                  className="w-full bg-white text-black py-4 font-semibold hover:bg-gray-200 transition-colors"
                 >
                   Continue to Payment
                 </button>
@@ -134,25 +134,25 @@ export default function BookingPage() {
 
           {step === 3 && (
             <div className="text-center">
-              <div className="w-20 h-20 bg-black flex items-center justify-center mx-auto mb-6">
-                <Check className="text-white" size={40} />
+              <div className="w-20 h-20 bg-white flex items-center justify-center mx-auto mb-6">
+                <Check className="text-black" size={40} />
               </div>
               <h2 className="text-4xl font-bold mb-4">Booking Confirmed!</h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-400 mb-8">
                 Your appointment is scheduled for {selectedDate} at {selectedTime}
               </p>
-              <div className="bg-gray-50 border border-gray-200 p-6 mb-8">
+              <div className="bg-gray-900 border border-gray-800 p-6 mb-8">
                 <div className="space-y-3 text-left">
-                  <div><span className="font-semibold">Service:</span> {service.name}</div>
-                  <div><span className="font-semibold">Duration:</span> {service.duration} minutes</div>
-                  <div><span className="font-semibold">Price:</span> {service.price} TND</div>
-                  <div><span className="font-semibold">Date:</span> {selectedDate}</div>
-                  <div><span className="font-semibold">Time:</span> {selectedTime}</div>
+                  <div><span className="font-semibold">Service:</span> <span className="text-gray-400">{service.name}</span></div>
+                  <div><span className="font-semibold">Duration:</span> <span className="text-gray-400">{service.duration} minutes</span></div>
+                  <div><span className="font-semibold">Price:</span> <span className="text-gray-400">{service.price} TND</span></div>
+                  <div><span className="font-semibold">Date:</span> <span className="text-gray-400">{selectedDate}</span></div>
+                  <div><span className="font-semibold">Time:</span> <span className="text-gray-400">{selectedTime}</span></div>
                 </div>
               </div>
               <Link
                 href="/dashboard"
-                className="inline-block bg-black text-white px-8 py-4 font-semibold hover:bg-gray-900 transition-colors"
+                className="inline-block bg-white text-black px-8 py-4 font-semibold hover:bg-gray-200 transition-colors"
               >
                 View My Bookings
               </Link>

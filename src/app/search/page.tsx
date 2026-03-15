@@ -60,9 +60,9 @@ export default function SearchPage() {
   })
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Search Header */}
-      <div className="bg-black text-white py-16">
+      <div className="bg-black text-white py-16 border-b border-gray-800">
         <div className="container mx-auto px-4">
           <h1 className="text-5xl font-bold mb-8 text-center">Discover Your Perfect Salon</h1>
           
@@ -75,13 +75,13 @@ export default function SearchPage() {
                 placeholder="Search salons or services..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 text-black border-2 border-black focus:outline-none"
+                className="w-full pl-12 pr-4 py-4 bg-black text-white border-2 border-white focus:outline-none"
               />
             </div>
             <select
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
-              className="px-6 py-4 text-black border-2 border-black focus:outline-none"
+              className="px-6 py-4 bg-black text-white border-2 border-white focus:outline-none"
             >
               <option value="all">All Cities</option>
               <option value="Tunis">Tunis</option>
@@ -94,14 +94,14 @@ export default function SearchPage() {
 
       {/* Results */}
       <div className="container mx-auto px-4 py-12">
-        <p className="text-gray-600 mb-6 font-medium">{filtered.length} salons found</p>
+        <p className="text-gray-400 mb-6 font-medium">{filtered.length} salons found</p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((salon) => (
             <Link 
               key={salon.id} 
               href={`/salon/${salon.id}`}
-              className="border-2 border-black hover:bg-gray-50 transition-colors group"
+              className="border-2 border-white hover:bg-gray-900 transition-colors group"
             >
               <div className="relative h-48 overflow-hidden">
                 <Image 
@@ -113,27 +113,27 @@ export default function SearchPage() {
               </div>
               <div className="p-6">
                 <h3 className="font-bold text-xl mb-2">{salon.name}</h3>
-                <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+                <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
                   <MapPin size={16} />
                   <span>{salon.city}</span>
                 </div>
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex items-center gap-1">
-                    <Star className="fill-black text-black" size={16} />
+                    <Star className="fill-white text-white" size={16} />
                     <span className="font-semibold">{salon.rating}</span>
                   </div>
-                  <span className="text-gray-400">({salon.reviews} reviews)</span>
+                  <span className="text-gray-500">({salon.reviews} reviews)</span>
                 </div>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {salon.services.slice(0, 3).map((service, i) => (
-                    <span key={i} className="bg-gray-100 text-black px-3 py-1 text-sm border border-gray-300">
+                    <span key={i} className="bg-gray-900 text-white px-3 py-1 text-sm border border-gray-700">
                       {service}
                     </span>
                   ))}
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">From <span className="font-bold text-black">{salon.price}</span></span>
-                  <button className="bg-black text-white px-6 py-2 hover:bg-gray-900 transition-colors">
+                  <span className="text-gray-400">From <span className="font-bold text-white">{salon.price}</span></span>
+                  <button className="bg-white text-black px-6 py-2 hover:bg-gray-200 transition-colors">
                     Book Now
                   </button>
                 </div>

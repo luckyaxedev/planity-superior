@@ -18,26 +18,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="border-b border-gray-200 bg-white">
+        <nav className="border-b border-gray-800 bg-black">
           <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-            <Link href="/" className="text-2xl font-bold text-black">
+            <Link href="/" className="text-2xl font-bold text-white">
               BookBeauty
             </Link>
             <div className="flex gap-8 items-center">
-              <Link href="/search" className="text-black hover:text-gray-600 transition-colors font-medium">
+              <Link href="/search" className="text-white hover:text-gray-400 transition-colors font-medium">
                 Find Salons
               </Link>
-              <Link href="/business" className="text-black hover:text-gray-600 transition-colors font-medium">
+              <Link href="/business" className="text-white hover:text-gray-400 transition-colors font-medium">
                 For Business
               </Link>
-              <Link href="/login" className="bg-black text-white px-6 py-2 hover:bg-gray-900 transition-colors font-medium">
+              <Link href="/login" className="bg-white text-black px-6 py-2 hover:bg-gray-200 transition-colors font-medium">
                 Sign In
               </Link>
             </div>
           </div>
         </nav>
         {children}
-        <footer className="bg-black text-white py-12 mt-20">
+        <footer className="bg-black text-white py-12 mt-20 border-t border-gray-800">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-4 gap-8">
               <div>

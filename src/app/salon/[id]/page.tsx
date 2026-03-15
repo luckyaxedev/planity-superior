@@ -66,19 +66,19 @@ export default function SalonPage({ params }: { params: Promise<{ id: string }> 
   const { id } = use(params)
   const salon = SALON_DATA[id]
 
-  if (!salon) return <div className="min-h-screen flex items-center justify-center"><p>Salon not found</p></div>
+  if (!salon) return <div className="min-h-screen bg-black text-white flex items-center justify-center"><p>Salon not found</p></div>
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Hero Images */}
       <div className="relative h-96 bg-black">
         <Image 
           src={salon.images[0]} 
           alt={salon.name}
           fill
-          className="object-cover grayscale opacity-70"
+          className="object-cover grayscale opacity-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         <div className="absolute bottom-8 left-0 right-0 container mx-auto px-4">
           <h1 className="text-5xl font-bold text-white mb-2">{salon.name}</h1>
           <div className="flex items-center gap-4 text-white">
@@ -100,17 +100,17 @@ export default function SalonPage({ params }: { params: Promise<{ id: string }> 
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* About */}
-            <section className="border-2 border-black p-8">
+            <section className="border-2 border-white p-8">
               <h2 className="text-3xl font-bold mb-4">About</h2>
-              <p className="text-gray-600">{salon.description}</p>
+              <p className="text-gray-400">{salon.description}</p>
             </section>
 
             {/* Services */}
-            <section className="border-2 border-black p-8">
+            <section className="border-2 border-white p-8">
               <h2 className="text-3xl font-bold mb-6">Services</h2>
               <div className="space-y-4">
                 {salon.services.map((service) => (
-                  <div key={service.id} className="flex justify-between items-center p-4 border-2 border-gray-200 hover:border-black transition-colors">
+                  <div key={service.id} className="flex justify-between items-center p-4 border-2 border-gray-800 hover:border-white transition-colors">
                     <div>
                       <h3 className="font-semibold text-lg">{service.name}</h3>
                       <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
@@ -122,7 +122,7 @@ export default function SalonPage({ params }: { params: Promise<{ id: string }> 
                       <p className="text-2xl font-bold">{service.price} TND</p>
                       <Link
                         href={`/booking/${salon.id}/${service.id}`}
-                        className="inline-block mt-2 bg-black text-white px-6 py-2 text-sm hover:bg-gray-900 transition-colors"
+                        className="inline-block mt-2 bg-white text-black px-6 py-2 text-sm hover:bg-gray-200 transition-colors"
                       >
                         Book Now
                       </Link>
@@ -136,32 +136,32 @@ export default function SalonPage({ params }: { params: Promise<{ id: string }> 
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Contact Info */}
-            <div className="border-2 border-black p-6">
+            <div className="border-2 border-white p-6">
               <h3 className="font-bold text-lg mb-4">Contact</h3>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <MapPin className="text-black flex-shrink-0" size={20} />
-                  <span className="text-gray-700">{salon.address}</span>
+                  <MapPin className="text-white flex-shrink-0" size={20} />
+                  <span className="text-gray-300">{salon.address}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="text-black" size={20} />
-                  <span className="text-gray-700">{salon.phone}</span>
+                  <Phone className="text-white" size={20} />
+                  <span className="text-gray-300">{salon.phone}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail className="text-black" size={20} />
-                  <span className="text-gray-700">{salon.email}</span>
+                  <Mail className="text-white" size={20} />
+                  <span className="text-gray-300">{salon.email}</span>
                 </div>
               </div>
             </div>
 
             {/* Hours */}
-            <div className="border-2 border-black p-6">
+            <div className="border-2 border-white p-6">
               <h3 className="font-bold text-lg mb-4">Opening Hours</h3>
               <div className="space-y-2">
                 {Object.entries(salon.hours).map(([day, hours]) => (
                   <div key={day} className="flex justify-between">
-                    <span className="capitalize text-gray-700">{day}</span>
-                    <span className="text-gray-600">{hours as string}</span>
+                    <span className="capitalize text-gray-300">{day}</span>
+                    <span className="text-gray-400">{hours as string}</span>
                   </div>
                 ))}
               </div>
