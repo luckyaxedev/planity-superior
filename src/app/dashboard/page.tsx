@@ -1,7 +1,6 @@
 'use client'
 
-import { Calendar, Clock, MapPin } from 'lucide-react'
-import Link from 'next/link'
+import { Calendar, Clock } from 'lucide-react'
 
 const MOCK_BOOKINGS = [
   {

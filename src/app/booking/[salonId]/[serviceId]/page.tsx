@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Calendar, Clock, Check } from 'lucide-react'
+import { Check } from 'lucide-react'
 import { use } from 'react'
+import Link from 'next/link'
 
 const TIME_SLOTS = [
   '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
@@ -10,12 +11,13 @@ const TIME_SLOTS = [
 ]
 
 export default function BookingPage({ params }: { params: Promise<{ salonId: string; serviceId: string }> }) {
-  const { salonId, serviceId } = use(params)
+  // In production, use params to fetch service: const { salonId, serviceId } = use(params)
+  use(params) // Consume params to satisfy Next.js requirements
   const [selectedDate, setSelectedDate] = useState('')
   const [selectedTime, setSelectedTime] = useState('')
   const [step, setStep] = useState(1)
 
-  const service = { name: 'Women\'s Haircut', price: 35, duration: 60 }
+  const service = { name: 'Women&apos;s Haircut', price: 35, duration: 60 }
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">

@@ -17,7 +17,7 @@ export default function AdminPage() {
         {/* Stats */}
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           {[
-            { icon: Calendar, label: 'Today\'s Bookings', value: '12', color: 'purple' },
+            { icon: Calendar, label: 'Today&apos;s Bookings', value: '12', color: 'purple' },
             { icon: Users, label: 'Total Customers', value: '847', color: 'pink' },
             { icon: TrendingUp, label: 'Revenue (Month)', value: '12,450 TND', color: 'blue' },
             { icon: Clock, label: 'Avg Rating', value: '4.8', color: 'yellow' },
@@ -32,7 +32,7 @@ export default function AdminPage() {
 
         {/* Today's Appointments */}
         <div className="bg-white rounded-2xl p-8 shadow-md">
-          <h2 className="text-2xl font-bold mb-6">Today's Appointments</h2>
+          <h2 className="text-2xl font-bold mb-6">Today&apos;s Appointments</h2>
           <div className="space-y-4">
             {MOCK_ADMIN_BOOKINGS.map((booking) => (
               <div key={booking.id} className="flex justify-between items-center p-4 border border-gray-200 rounded-xl hover:border-purple-300 transition-colors">

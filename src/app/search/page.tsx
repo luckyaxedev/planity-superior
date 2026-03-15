@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Search, MapPin, Star, Clock } from 'lucide-react'
+import { Search, MapPin, Star } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const MOCK_SALONS = [
   {
@@ -103,10 +104,11 @@ export default function SearchPage() {
               className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group"
             >
               <div className="relative h-48 overflow-hidden">
-                <img 
+                <Image 
                   src={salon.image} 
                   alt={salon.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="p-6">

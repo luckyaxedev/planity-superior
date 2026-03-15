@@ -3,8 +3,31 @@
 import { Star, MapPin, Clock, Phone, Mail } from 'lucide-react'
 import Link from 'next/link'
 import { use } from 'react'
+import Image from 'next/image'
 
-const SALON_DATA: Record<string, any> = {
+interface Service {
+  id: number
+  name: string
+  duration: number
+  price: number
+}
+
+interface Salon {
+  id: number
+  name: string
+  city: string
+  address: string
+  phone: string
+  email: string
+  rating: number
+  reviews: number
+  images: string[]
+  description: string
+  hours: Record<string, string>
+  services: Service[]
+}
+
+const SALON_DATA: Record<string, Salon> = {
   '1': {
     id: 1,
     name: 'Élégance Hair Studio',
@@ -49,10 +72,11 @@ export default function SalonPage({ params }: { params: Promise<{ id: string }> 
     <div className="min-h-screen bg-gray-50">
       {/* Hero Images */}
       <div className="relative h-96 bg-gray-900">
-        <img 
+        <Image 
           src={salon.images[0]} 
           alt={salon.name}
-          className="w-full h-full object-cover opacity-90"
+          fill
+          className="object-cover opacity-90"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-8 left-0 right-0 container mx-auto px-4">
@@ -85,7 +109,7 @@ export default function SalonPage({ params }: { params: Promise<{ id: string }> 
             <section className="bg-white rounded-2xl p-8 shadow-md">
               <h2 className="text-2xl font-bold mb-6">Services</h2>
               <div className="space-y-4">
-                {salon.services.map((service: any) => (
+                {salon.services.map((service) => (
                   <div key={service.id} className="flex justify-between items-center p-4 border border-gray-200 rounded-xl hover:border-purple-300 transition-colors group">
                     <div>
                       <h3 className="font-semibold text-lg group-hover:text-purple-600 transition-colors">{service.name}</h3>
