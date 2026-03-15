@@ -18,26 +18,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+        <nav className="border-b border-gray-200 bg-white">
+          <div className="container mx-auto px-4 py-6 flex justify-between items-center">
+            <Link href="/" className="text-2xl font-bold text-black">
               BookBeauty
             </Link>
-            <div className="flex gap-6 items-center">
-              <Link href="/search" className="text-gray-700 hover:text-purple-600 transition-colors">
+            <div className="flex gap-8 items-center">
+              <Link href="/search" className="text-black hover:text-gray-600 transition-colors font-medium">
                 Find Salons
               </Link>
-              <Link href="/business" className="text-gray-700 hover:text-purple-600 transition-colors">
+              <Link href="/business" className="text-black hover:text-gray-600 transition-colors font-medium">
                 For Business
               </Link>
-              <Link href="/login" className="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition-colors">
+              <Link href="/login" className="bg-black text-white px-6 py-2 hover:bg-gray-900 transition-colors font-medium">
                 Sign In
               </Link>
             </div>
           </div>
         </nav>
         {children}
-        <footer className="bg-gray-900 text-white py-12 mt-20">
+        <footer className="bg-black text-white py-12 mt-20">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-4 gap-8">
               <div>

@@ -10,42 +10,42 @@ const MOCK_ADMIN_BOOKINGS = [
 
 export default function AdminPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-white py-12">
       <div className="container mx-auto px-4 max-w-7xl">
-        <h1 className="text-4xl font-bold mb-8">Salon Dashboard</h1>
+        <h1 className="text-5xl font-bold mb-8">Salon Dashboard</h1>
 
         {/* Stats */}
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           {[
-            { icon: Calendar, label: 'Today&apos;s Bookings', value: '12', color: 'purple' },
-            { icon: Users, label: 'Total Customers', value: '847', color: 'pink' },
-            { icon: TrendingUp, label: 'Revenue (Month)', value: '12,450 TND', color: 'blue' },
-            { icon: Clock, label: 'Avg Rating', value: '4.8', color: 'yellow' },
+            { icon: Calendar, label: 'Today&apos;s Bookings', value: '12' },
+            { icon: Users, label: 'Total Customers', value: '847' },
+            { icon: TrendingUp, label: 'Revenue (Month)', value: '12,450 TND' },
+            { icon: Clock, label: 'Avg Rating', value: '4.8' },
           ].map((stat, i) => (
-            <div key={i} className="bg-white rounded-2xl p-6 shadow-md">
-              <stat.icon className={`text-${stat.color}-600 mb-3`} size={32} />
+            <div key={i} className="border-2 border-black p-6">
+              <stat.icon className="mb-3" size={32} strokeWidth={1.5} />
               <p className="text-gray-600 text-sm mb-1">{stat.label}</p>
               <p className="text-3xl font-bold">{stat.value}</p>
             </div>
           ))}
         </div>
 
-        {/* Today's Appointments */}
-        <div className="bg-white rounded-2xl p-8 shadow-md">
-          <h2 className="text-2xl font-bold mb-6">Today&apos;s Appointments</h2>
+        {/* Today&apos;s Appointments */}
+        <div className="border-2 border-black p-8">
+          <h2 className="text-3xl font-bold mb-6">Today&apos;s Appointments</h2>
           <div className="space-y-4">
             {MOCK_ADMIN_BOOKINGS.map((booking) => (
-              <div key={booking.id} className="flex justify-between items-center p-4 border border-gray-200 rounded-xl hover:border-purple-300 transition-colors">
+              <div key={booking.id} className="flex justify-between items-center p-4 border-2 border-gray-200 hover:border-black transition-colors">
                 <div>
                   <h3 className="font-semibold text-lg">{booking.customer}</h3>
                   <p className="text-gray-600">{booking.service}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold">{booking.time}</p>
-                  <span className={`inline-block px-3 py-1 rounded-full text-sm ${
+                  <p className="font-semibold mb-2">{booking.time}</p>
+                  <span className={`inline-block px-3 py-1 border text-sm ${
                     booking.status === 'confirmed' 
-                      ? 'bg-green-100 text-green-700' 
-                      : 'bg-yellow-100 text-yellow-700'
+                      ? 'bg-black text-white border-black' 
+                      : 'bg-white text-black border-black'
                   }`}>
                     {booking.status}
                   </span>
